@@ -380,6 +380,11 @@ header {
     .feature-card {
         background: rgba(255, 255, 255, 0.95) !important;
     }
+
+    /* Disable severe mobile performance killer (parallax repainting) */
+    * {
+        background-attachment: scroll !important;
+    }
 }
 
 body {
