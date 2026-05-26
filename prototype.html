@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sofia | A Magical Historic Venue</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- CORE STYLES from style.css --- */
+        :root {
+            --primary-color: #1B4D3E;
+            --secondary-color: #D4AF37;
+            --accent-color: #F8ECE0;
+            --text-color: #2C2C2C;
+            --background-color: #FDFBF7;
+            --white: #FFFFFF;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --font-script: 'Great Vibes', cursive;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --spacing-xl: 64px;
+            --border-radius: 8px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        .script-text {
+            font-family: var(--font-script);
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            font-weight: normal;
+            display: block;
+            margin-bottom: -10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Utilities */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid var(--primary-color);
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(27, 77, 62, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            height: 70px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        /* Hero Section with Parallax */
+        .hero {
+            height: 90vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            color: var(--white);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.8rem;
+            font-style: italic;
+            font-family: var(--font-heading);
+            margin-bottom: 40px;
+        }
+
+        /* Feature Cards */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            transition: all 0.5s ease;
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow);
+            border-color: var(--secondary-color);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Masonry Gallery */
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 20px;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+        }
+
+        .masonry-item img {
+            border-radius: var(--border-radius);
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.02);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                background-color: var(--white);
+                flex-direction: column;
+                top: 80px;
+                left: 0;
+                right: 0;
+                text-align: center;
+                padding: 40px;
+                transform: translateY(-150%);
+                transition: transform 0.5s ease;
+                box-shadow: var(--box-shadow);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+
+        /* --- PAGE SPECIFIC STYLES (Venue) --- */
+        .pricing-section {
+            position: relative;
+            z-index: 10;
+            margin-top: -60px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 5px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+            margin: 20px 0;
+            font-weight: 700;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #777;
+            font-weight: 400;
+        }
+
+        .amenity-check {
+            text-align: left;
+            margin: 30px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .amenity-check li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .amenity-check li::before {
+            content: '✦';
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        /* --- PAGE SPECIFIC STYLES (Contact) --- */
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background: #fdfdfd;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            background: white;
+        }
+
+        /* --- SPA SPECIFIC STYLES --- */
+        .page-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .page-section.active {
+            display: block;
+            opacity: 1;
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (Shared) -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <a href="#home">
+                    <img src="Logo.png" alt="The Sofia Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#history">Our Story</a></li>
+                    <li><a href="#venue">Venue & Pricing</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span>&#9776;</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOME SECTION -->
+        <div id="home" class="page-section active">
+            <!-- Hero Section (Parallax) -->
+            <!-- Using a high-quality event photo R6II3298.jpg instead of drone shot -->
+            <section class="hero" style="background-image: url('R6II3298.jpg');">
+                <div class="hero-content">
+                    <span class="script-text">Welcome to</span>
+                    <h1>The Sofia</h1>
+                    <p>Where History Meets Ever After</p>
+                    <a href="#venue" class="btn">Begin Your Journey</a>
+                </div>
+            </section>
+
+            <!-- Intro Section -->
+            <section class="section-padding text-center">
+                <div class="container" style="max-width: 800px;">
+                    <span class="script-text">Our Story</span>
+                    <h2>A Timeless Setting</h2>
+                    <p style="font-size: 1.1rem; color: #555; margin-top: 20px;">
+                        Steeped in history and restored with love. The Sofia offers a breathtaking
+                        backdrop for your most cherished moments. What was once a bustling center of industry
+                        in the 1800s is now a sanctuary of romance in downtown Lincoln.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section class="section-padding" style="background-color: var(--accent-color);">
+                <div class="container">
+                    <div class="grid-3">
+                        <div class="feature-card">
+                            <span class="feature-icon">✦</span>
+                            <h3>Historic Magic</h3>
+                            <p>Original 19th-century craftsmanship meets modern luxury, creating an atmosphere that
+                                feels truly
+                                enchanted.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">❤</span>
+                            <h3>Intimate & Grand</h3>
+                            <p>From the cozy fireplace to the 1,000 sq ft covered pavilion, every corner is designed for
+                                connection.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">☀</span>
+                            <h3>Perfectly Located</h3>
+                            <p>Nestled in the heart of downtown, offering an exclusive retreat with effortless city
+                                convenience.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonial / Mood -->
+            <section class="section-padding text-center"
+                style="background-image: linear-gradient(rgba(27, 77, 62, 0.9), rgba(27, 77, 62, 0.9)), url('R6II3214.jpg'); background-size: cover; background-attachment: fixed; color: white;">
+                <div class="container">
+                    <h2 style="color: var(--secondary-color);">"A hidden gem that felt like a fairytale."</h2>
+                    <p style="margin-top: 20px;">- Recent Bride</p>
+                    <br><br>
+                    <a href="#venue" class="btn"
+                        style="background: transparent; border: 2px solid var(--secondary-color); color: var(--secondary-color);">View
+                        Packages</a>
+                </div>
+            </section>
+        </div>
+
+        <!-- HISTORY SECTION -->
+        <div id="history" class="page-section">
+            <section class="hero" style="height: 50vh; background-image: url('R6II3270.jpg');">
+                <div class="hero-content">
+                    <span class="script-text"
+                        style="color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">History</span>
+                    <h1>The Story of The Sofia</h1>
+                </div>
+            </section>
+
+            <section class="section-padding">
+                <div class="container" style="max-width: 800px; text-align: center;">
+                    <h2 class="script-text" style="color: var(--secondary-color);">A Legacy Reimagined</h2>
+                    <br>
+                    <p style="font-size: 1.2rem; margin-bottom: 20px;">
+                        This historic building, once owned by the Flocchini Family and Gladding McBean Clay Company, has
+                        undergone a transformation.
+                    </p>
+                    <p style="font-size: 1.2rem; margin-bottom: 20px;">
+                        This thoughtful restoration has focused on preserving its storied past while considering the
+                        best use
+                        for this property moving forward, paying special attention to modern touches and conveniences.
+                        This
+                        custom craftsman, built in the 1800s, has entertained many guests over the years.
+                    </p>
+                    <p style="font-size: 1.2rem; margin-bottom: 40px;">
+                        We present a walk back in time to the charm of a bygone era, coupled with a desire to create a
+                        space for
+                        families and friends to gather and celebrate a family wedding or gathering, a business meeting,
+                        or a
+                        friends' get-together. Please come and enjoy this beautifully inspired creation we call The
+                        Sofia, the
+                        name of which comes from the youngest daughter of the current owner.
+                    </p>
+                    <hr style="width: 100px; margin: 0 auto 40px auto; border-top: 2px solid var(--secondary-color);">
+                    <a href="#venue" class="btn">Explore the Venue</a>
+                </div>
+            </section>
+        </div>
+
+        <!-- VENUE SECTION -->
+        <div id="venue" class="page-section">
+            <!-- Page Header -->
+            <section class="hero" style="height: 50vh; background-image: url('R6II3285.jpg');">
+                <div class="hero-content">
+                    <span class="script-text"
+                        style="color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Investment</span>
+                    <h1>The Venue</h1>
+                </div>
+            </section>
+
+            <!-- Pricing Packages -->
+            <section class="section-padding pricing-section">
+                <div class="container">
+                    <div class="grid-3" style="justify-content: center; gap: 30px;">
+
+                        <!-- Package 1 -->
+                        <div class="pricing-card">
+                            <h3>The Classic</h3>
+                            <p>Perfect for intimate gatherings and elegant receptions.</p>
+                            <div class="price">$4,995 <span>/ 24 hrs</span></div>
+                            <ul class="amenity-check">
+                                <li>Exclusive use of Venue (1000 sq ft pavilion)</li>
+                                <li>Full Audio/Visual & Bluetooth System</li>
+                                <li>Serving Bar & Gas Fireplace</li>
+                                <li>Full Prep Kitchen (BBQ, Fridge, Warmers)</li>
+                                <li>Tables, Chairs & Seat Covers</li>
+                                <li>Misters & Patio Heaters</li>
+                            </ul>
+                            <!-- Calendly Integration Hook -->
+                            <button class="btn" onclick="startBooking('Classic Package')">Select Package</button>
+                        </div>
+
+                        <!-- Package 2 -->
+                        <div class="pricing-card"
+                            style="transform: scale(1.05); border-color: var(--primary-color); z-index: 2;">
+                            <div
+                                style="background: var(--primary-color); color: white; padding: 5px 15px; position: absolute; top: 20px; right: -30px; transform: rotate(45deg); width: 150px; font-size: 0.8rem; font-weight: bold; font-family: sans-serif;">
+                                POPULAR</div>
+                            <h3>The Celebration</h3>
+                            <p>Includes our premium dance floor for the ultimate party.</p>
+                            <div class="price">$5,495 <span>/ 24 hrs</span></div>
+                            <ul class="amenity-check">
+                                <li><strong>Everything in Classic, plus:</strong></li>
+                                <li>30 x 30 Parquet Dance Floor included</li>
+                                <li>Dance floor setup & takedown included</li>
+                                <li>Priority Vendor Access</li>
+                            </ul>
+                            <button class="btn" onclick="startBooking('Celebration Package')">Select Package</button>
+                        </div>
+
+                        <!-- Deposits Info -->
+                        <div class="pricing-card" style="background: var(--accent-color); border: none;">
+                            <h3>Details</h3>
+                            <p style="margin-bottom: 20px;">Transparent policies for peace of mind.</p>
+                            <ul class="amenity-check" style="color: var(--text-color);">
+                                <li><strong>Deposit:</strong> $500 to save your date (Deducted from total).</li>
+                                <li><strong>Payment:</strong> 50% due 7 days after booking.</li>
+                                <li><strong>Cleaning:</strong> $500 Refundable deposit.</li>
+                                <li><strong>Cancellation:</strong> Flexible options available > 30 days out.</li>
+                            </ul>
+                            <button class="btn btn-secondary" onclick="startBooking('Tour')">Schedule a Tour</button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- GALLERY SECTION -->
+        <div id="gallery" class="page-section">
+            <section class="hero"
+                style="height: 40vh; background-image: url('R6II3358.jpg'); background-position: center 80%; background-attachment: scroll;">
+                <div class="hero-content">
+                    <span class="script-text"
+                        style="color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Moments</span>
+                    <h1>Real Weddings</h1>
+                </div>
+            </section>
+
+            <section class="section-padding">
+                <div class="container">
+                    <div class="masonry-grid">
+                        <!-- User Selected Images -->
+                        <div class="masonry-item"><img src="R6II3279.jpg" alt="Gallery Image 1"></div>
+                        <div class="masonry-item"><img src="R6II3176.jpg" alt="Gallery Image 2"></div>
+                        <div class="masonry-item"><img src="R6II3271.jpg" alt="Gallery Image 3"></div>
+                        <div class="masonry-item"><img src="R6II3298.jpg" alt="Gallery Image 4"></div>
+                        <div class="masonry-item"><img src="R6II3320.jpg" alt="Gallery Image 5"></div>
+                        <div class="masonry-item"><img src="R6II3358.jpg" alt="Gallery Image 6"></div>
+                        <div class="masonry-item"><img src="R6II3361.jpg" alt="Gallery Image 7"></div>
+                        <div class="masonry-item"><img src="R6II3211.jpg" alt="Gallery Image 8"></div>
+                        <div class="masonry-item"><img src="DJI_20250510201046_0003_D.jpg" alt="Gallery Image 9"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CONTACT SECTION -->
+        <div id="contact" class="page-section">
+            <section class="hero" style="height: 40vh; background-image: url('R6II3320.jpg');">
+                <div class="hero-content">
+                    <span class="script-text" style="color: white;">Get in Touch</span>
+                    <h1>Plan Your Day</h1>
+                </div>
+            </section>
+
+            <section class="section-padding">
+                <div class="container">
+                    <div class="grid-3" style="grid-template-columns: 2fr 1fr; gap: 60px; align-items: start;">
+
+                        <div>
+                            <h2 class="script-text" style="font-size: 2rem; color: var(--primary-color);">Send an
+                                Inquiry</h2>
+                            <p style="margin-bottom: 30px;">Tell us about your dream event.</p>
+
+                            <form onsubmit="event.preventDefault(); alert('Thank you! We will be in touch shortly.');">
+                                <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                    <input type="email" class="form-control" placeholder="Email Address" required>
+                                </div>
+                                <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                                    <input type="tel" class="form-control" placeholder="Phone Number">
+                                    <input type="text" class="form-control" placeholder="Desired Date">
+                                </div>
+                                <textarea class="form-control" rows="5"
+                                    placeholder="Tell us about your event (Guest count, special requests, etc.)"></textarea>
+                                <button type="submit" class="btn">Send Message</button>
+                            </form>
+                        </div>
+
+                        <div
+                            style="background: white; padding: 40px; border-radius: 8px; box-shadow: var(--box-shadow);">
+                            <h3>Ready to Visit?</h3>
+                            <p style="margin-bottom: 20px;">We'd love to show you around The Sofia.</p>
+                            <button class="btn" style="width: 100%; margin-bottom: 20px;"
+                                onclick="startBooking('Tour')">Schedule a Tour Now</button>
+
+                            <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+                            <h4>Location</h4>
+                            <p>Downtown Lincoln, CA</p>
+                            <br>
+                            <h4>Contact</h4>
+                            <p>info@thesofia.com</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer (Shared) -->
+    <footer style="background-color: var(--primary-color); color: var(--white); padding: 80px 0; text-align: center;">
+        <div class="container">
+            <h3 style="color: var(--secondary-color); font-family: var(--font-script); font-size: 3rem;">The Sofia</h3>
+            <p>Downtown Lincoln, CA</p>
+            <div style="margin: 30px 0;">
+                <a href="#" style="color: var(--secondary-color); margin: 0 10px;">Instagram</a>
+                <a href="#" style="color: var(--secondary-color); margin: 0 10px;">Facebook</a>
+            </div>
+            <p style="opacity: 0.7; font-size: 0.8rem;">&copy; 2026 The Sofia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Navigation
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Placeholder functions for buttons
+            window.requestBooking = function () {
+                alert("Thank you for your interest! Booking features coming soon.");
+            };
+
+            window.startBooking = function (pkg) {
+                alert("You selected: " + pkg + ". Booking calendar would open here.");
+            }
+
+            // --- SPA Navigation Logic ---
+
+            function showSection(sectionId) {
+                // Default to home if no valid ID
+                if (!sectionId || !document.getElementById(sectionId)) sectionId = 'home';
+
+                // Hide all sections
+                document.querySelectorAll('.page-section').forEach(el => {
+                    el.classList.remove('active');
+                });
+
+                // Show target section
+                document.getElementById(sectionId).classList.add('active');
+
+                // Update navigation state
+                document.querySelectorAll('.nav-links a').forEach(el => {
+                    el.classList.remove('active');
+                    // Check if the href matches the sectionId (e.g. #home or just home)
+                    const href = el.getAttribute('href');
+                    if (href === '#' + sectionId) {
+                        el.classList.add('active');
+                    }
+                });
+
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+
+            // Handle Navigation Clicks
+            document.querySelectorAll('a').forEach(link => {
+                const href = link.getAttribute('href');
+                // Only intercept hash links that correspond to our sections
+                if (href && href.startsWith('#') && href.length > 1) {
+                    const targetId = href.substring(1);
+                    if (document.getElementById(targetId)) {
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            showSection(targetId);
+                        });
+                    }
+                }
+            });
+
+            // Handle Initial Load (Hash or Default)
+            const initialHash = window.location.hash.substring(1);
+            showSection(initialHash || 'home');
+
+            // Handle Browser Back/Forward
+            window.addEventListener('popstate', () => {
+                const hash = window.location.hash.substring(1);
+                showSection(hash || 'home');
+            });
+        });
+    </script>
+</body>
+
+</html>

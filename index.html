@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sofia | A Magical Historic Venue</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Logo.png" alt="The Sofia Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="history.html">Our Story</a></li>
+                    <li><a href="venue.html">Venue & Pricing</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span>&#9776;</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (Parallax) -->
+    <!-- Using a high-quality event photo R6II3298.jpg instead of drone shot -->
+    <section class="hero" style="background-image: url('R6II3298.jpg');">
+        <div class="hero-content">
+            <span class="script-text">Welcome to</span>
+            <h1>The Sofia</h1>
+            <p>Where History Meets Ever After</p>
+            <a href="venue.html" class="btn">Begin Your Journey</a>
+        </div>
+    </section>
+
+    <!-- Intro & Features Section -->
+    <section class="section-padding text-center" style="position: relative; overflow: hidden; background-color: var(--background-color); padding-bottom: 180px;">
+        <div class="container" style="position: relative;">
+
+            <!-- Diagonal vine decor -->
+            <div class="decor-element decor-vine-diagonal" style="top: -50px; left: 50%; transform: translateX(-50%) rotate(20deg); z-index: 1;"></div>
+            
+            <!-- Mobile bottom decor -->
+            <div class="decor-element decor-vine-diagonal mobile-only-decor" style="bottom: -150px; left: 50%; transform: translateX(-50%) rotate(-160deg); z-index: 1;"></div>
+
+            <div style="position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-shadow: 0 0 15px rgba(252, 251, 249, 1), 0 0 30px rgba(252, 251, 249, 1), 0 0 45px rgba(252, 251, 249, 1);">
+                <span class="script-text">Our Story</span>
+                <h2>A Timeless Setting</h2>
+                <p style="font-size: 1.1rem; color: #333; margin-top: 20px; margin-bottom: 50px; font-weight: 500;">
+                    Steeped in history and restored with love. The Sofia offers a breathtaking
+                    backdrop for your most cherished moments. What was once a bustling center of industry
+                    in the 1800s is now a sanctuary of romance in downtown Lincoln.
+                </p>
+            </div>
+
+            <div class="grid-3" style="position: relative; z-index: 2; text-align: left;">
+                <div class="feature-card">
+                    <span class="feature-icon" style="text-align: center; display: block;">✦</span>
+                    <h3 style="text-align: center;">Historic Magic</h3>
+                    <p style="text-align: center;">Original 19th-century craftsmanship meets modern luxury, creating an atmosphere that feels truly
+                        enchanted.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon" style="text-align: center; display: block;">❤</span>
+                    <h3 style="text-align: center;">Intimate & Grand</h3>
+                    <p style="text-align: center;">From the cozy fireplace to the 1,000 sq ft covered pavilion, every corner is designed for
+                        connection.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon" style="text-align: center; display: block;">☀</span>
+                    <h3 style="text-align: center;">Perfectly Located</h3>
+                    <p style="text-align: center;">Nestled in the heart of downtown, offering an exclusive retreat with effortless city convenience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial / Mood -->
+    <section class="section-padding text-center"
+        style="background-image: linear-gradient(rgba(26, 38, 57, 0.9), rgba(55, 83, 123, 0.85)), url('R6II3214.jpg'); background-size: cover; background-attachment: fixed; color: white;">
+        <div class="container">
+            <h2 style="color: var(--secondary-color);">"A hidden gem that felt like a fairytale."</h2>
+            <p style="margin-top: 20px;">- Recent Bride</p>
+            <br><br>
+            <a href="venue.html" class="btn"
+                style="background: transparent; border: 2px solid var(--secondary-color); color: var(--secondary-color);">View
+                Packages</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--primary-color); color: var(--white); padding: 80px 0; text-align: center;">
+        <div class="container">
+            <h3 style="color: var(--secondary-color); font-family: var(--font-script); font-size: 3rem;">The Sofia</h3>
+            <p>Downtown Lincoln, CA</p>
+            <div style="margin: 30px 0;">
+                <a href="#" style="color: var(--secondary-color); margin: 0 10px;">Instagram</a>
+                <a href="#" style="color: var(--secondary-color); margin: 0 10px;">Facebook</a>
+            </div>
+            <p style="opacity: 0.7; font-size: 0.8rem;">&copy; 2026 The Sofia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

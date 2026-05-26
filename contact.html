@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | The Sofia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background: #fdfdfd;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo"><a href="index.html"><img src="Logo.png" alt="The Sofia Logo"></a></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="history.html">Our Story</a></li>
+                    <li><a href="venue.html">Venue & Pricing</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="hamburger"><span>&#9776;</span></div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="height: 40vh; background-image: url('R6II3320.jpg');">
+        <div class="hero-content">
+            <span class="script-text" style="color: white;">Get in Touch</span>
+            <h1>Plan Your Day</h1>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-3" style="grid-template-columns: 2fr 1fr; gap: 60px; align-items: start;">
+
+                <div>
+                    <h2 class="script-text" style="font-size: 2rem; color: var(--primary-color);">Send an Inquiry</h2>
+                    <p style="margin-bottom: 30px;">Tell us about your dream event.</p>
+
+                    <form onsubmit="event.preventDefault(); alert('Thank you! We will be in touch shortly.');">
+                        <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <input type="tel" class="form-control" placeholder="Phone Number">
+                            <input type="text" class="form-control" placeholder="Desired Date">
+                        </div>
+                        <textarea class="form-control" rows="5"
+                            placeholder="Tell us about your event (Guest count, special requests, etc.)"></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+
+                <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: var(--box-shadow);">
+                    <h3>Ready to Visit?</h3>
+                    <p style="margin-bottom: 20px;">We'd love to show you around The Sofia.</p>
+                    <button class="btn" style="width: 100%; margin-bottom: 20px;"
+                        onclick="startBooking('Tour')">Schedule a Tour Now</button>
+
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+                    <h4>Location</h4>
+                    <p>Downtown Lincoln, CA</p>
+                    <br>
+                    <h4>Contact</h4>
+                    <p>info@thesofia.com</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer style="background-color: var(--primary-color); color: var(--white); padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h3 style="color: var(--secondary-color); font-family: var(--font-script);">The Sofia</h3>
+            <p>&copy; 2026 The Sofia.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

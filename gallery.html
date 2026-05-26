@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | The Sofia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo"><a href="index.html"><img src="Logo.png" alt="The Sofia Logo"></a></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="history.html">Our Story</a></li>
+                    <li><a href="venue.html">Venue & Pricing</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger"><span>&#9776;</span></div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero"
+        style="height: 40vh; background-image: url('R6II3358.jpg'); background-position: center 80%; background-attachment: scroll;">
+        <div class="hero-content">
+            <span class="script-text" style="color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Moments</span>
+            <h1>Real Weddings</h1>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="masonry-grid">
+                <!-- User Selected Images -->
+                <div class="masonry-item"><img src="R6II3279.jpg" alt="Gallery Image 1"></div>
+                <div class="masonry-item"><img src="R6II3176.jpg" alt="Gallery Image 2"></div>
+                <div class="masonry-item"><img src="R6II3271.jpg" alt="Gallery Image 3"></div>
+                <div class="masonry-item"><img src="R6II3298.jpg" alt="Gallery Image 4"></div>
+                <div class="masonry-item"><img src="R6II3320.jpg" alt="Gallery Image 5"></div>
+                <div class="masonry-item"><img src="R6II3358.jpg" alt="Gallery Image 6"></div>
+                <div class="masonry-item"><img src="R6II3361.jpg" alt="Gallery Image 7"></div>
+                <div class="masonry-item"><img src="R6II3211.jpg" alt="Gallery Image 8"></div>
+                <div class="masonry-item"><img src="DJI_20250510201046_0003_D.jpg" alt="Gallery Image 9"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background-color: var(--primary-color); color: var(--white); padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h3 style="color: var(--secondary-color); font-family: var(--font-script);">The Sofia</h3>
+            <p>&copy; 2026 The Sofia.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content-wrapper">
+            <a class="lightbox-prev">&#10094;</a>
+            <img class="lightbox-content" id="lightbox-img" src="" alt="Gallery Full Size">
+            <a class="lightbox-next">&#10095;</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

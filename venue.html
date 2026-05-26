@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue & Investment | The Sofia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .pricing-section {
+            position: relative;
+            z-index: 10;
+            margin-top: -60px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 5px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+            margin: 20px 0;
+            font-weight: 700;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #777;
+            font-weight: 400;
+        }
+
+        .amenity-check {
+            text-align: left;
+            margin: 30px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .amenity-check li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .amenity-check li::before {
+            content: '✦';
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo"><a href="index.html"><img src="Logo.png" alt="The Sofia Logo"></a></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="history.html">Our Story</a></li>
+                    <li><a href="venue.html" class="active">Venue & Pricing</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger"><span>&#9776;</span></div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero" style="height: 50vh; background-image: url('R6II3285.jpg');">
+        <div class="hero-content">
+            <span class="script-text" style="color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Investment</span>
+            <h1>The Venue</h1>
+        </div>
+    </section>
+
+    <!-- Pricing Packages -->
+    <section class="section-padding pricing-section" style="position: relative; background-color: var(--background-color);">
+        <div class="container" style="position: relative;">
+            <!-- Decor perfectly framing the cards -->
+            <div class="decor-element decor-vine-top-left" style="top: -170px; left: -140px;"></div>
+            <div class="decor-element decor-lemon-bottom-right" style="bottom: -120px; right: -120px;"></div>
+
+            <div class="grid-3" style="justify-content: center; gap: 30px; position: relative; z-index: 2;">
+
+                <!-- Package 1 -->
+                <div class="pricing-card">
+                    <h3>The Classic</h3>
+                    <p>Perfect for intimate gatherings and elegant receptions.</p>
+                    <div class="price">$4,995 <span>/ 24 hrs</span></div>
+                    <ul class="amenity-check">
+                        <li>Exclusive use of Venue (1000 sq ft pavilion)</li>
+                        <li>Full Audio/Visual & Bluetooth System</li>
+                        <li>Serving Bar & Gas Fireplace</li>
+                        <li>Full Prep Kitchen (BBQ, Fridge, Warmers)</li>
+                        <li>Tables, Chairs & Seat Covers</li>
+                        <li>Misters & Patio Heaters</li>
+                    </ul>
+                    <!-- Calendly/TidyCal Integration Hook -->
+                    <button class="btn" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})">Select Package</button>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="pricing-card"
+                    style="transform: scale(1.05); border-color: var(--primary-color); z-index: 2;">
+                    <div
+                        style="background: var(--primary-color); color: white; padding: 5px 15px; position: absolute; top: 20px; right: -30px; transform: rotate(45deg); width: 150px; font-size: 0.8rem; font-weight: bold; font-family: sans-serif;">
+                        POPULAR</div>
+                    <h3>The Celebration</h3>
+                    <p>Includes our premium dance floor for the ultimate party.</p>
+                    <div class="price">$5,495 <span>/ 24 hrs</span></div>
+                    <ul class="amenity-check">
+                        <li><strong>Everything in Classic, plus:</strong></li>
+                        <li>30 x 30 Parquet Dance Floor included</li>
+                        <li>Dance floor setup & takedown included</li>
+                        <li>Priority Vendor Access</li>
+                    </ul>
+                    <button class="btn" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})">Select Package</button>
+                </div>
+
+                <!-- Deposits Info -->
+                <div class="pricing-card" style="background: var(--accent-color); border: none;">
+                    <h3>Details</h3>
+                    <p style="margin-bottom: 20px;">Transparent policies for peace of mind.</p>
+                    <ul class="amenity-check" style="color: var(--text-color);">
+                        <li><strong>Deposit:</strong> $500 to save your date (Deducted from total).</li>
+                        <li><strong>Payment:</strong> 50% due 7 days after booking.</li>
+                        <li><strong>Cleaning:</strong> $500 Refundable deposit.</li>
+                        <li><strong>Cancellation:</strong> Flexible options available > 30 days out.</li>
+                    </ul>
+                    <button class="btn btn-secondary" onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})">Schedule a Tour</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking-section" class="section-padding" style="background-color: var(--white);">
+        <div class="container text-center">
+            <h2 class="script-text" style="color: var(--secondary-color);">Reserve Your Date</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Select your package and date below to secure your booking. 
+            </p>
+            
+            <!-- TidyCal Embed Placeholder -->
+            <div id="tidycal-embed" style="max-width: 1000px; margin: 0 auto; min-height: 500px; border: 2px dashed var(--secondary-color); padding: 50px; background: var(--background-color); border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <h3 style="color: var(--primary-color);">Interactive Booking Calendar</h3>
+                <p style="color: var(--text-color);">Awaiting TidyCal embed link...</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--primary-color); color: var(--white); padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h3 style="color: var(--secondary-color); font-family: var(--font-script);">The Sofia</h3>
+            <p>&copy; 2026 The Sofia. 123 Main St, Lincoln CA.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
