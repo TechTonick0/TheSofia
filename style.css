@@ -313,6 +313,19 @@ header {
     box-shadow: var(--box-shadow);
 }
 
+/* Contact Page Layout */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {
@@ -341,7 +354,7 @@ header {
         font-size: 3rem;
     }
 
-    .grid-3 {
+    .grid-3, .contact-grid, .form-row {
         grid-template-columns: 1fr;
     }
 
