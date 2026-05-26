@@ -371,6 +371,15 @@ header {
         bottom: -200px !important;
         right: -120px !important;
     }
+
+    /* Disable expensive glassmorphism blurs on mobile */
+    header, .feature-card {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    .feature-card {
+        background: rgba(255, 255, 255, 0.95) !important;
+    }
 }
 
 body {
