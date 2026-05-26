@@ -162,6 +162,10 @@ header {
     transition: all 0.3s ease;
 }
 
+.glow-text {
+    text-shadow: 0 0 15px rgba(252, 251, 249, 1), 0 0 30px rgba(252, 251, 249, 1), 0 0 45px rgba(252, 251, 249, 1);
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -372,13 +376,9 @@ header {
         right: -120px !important;
     }
 
-    /* Disable expensive glassmorphism blurs on mobile */
-    header, .feature-card {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-    }
-    .feature-card {
-        background: rgba(255, 255, 255, 0.95) !important;
+    /* Simplify text shadows on mobile to save GPU cycles */
+    .glow-text {
+        text-shadow: 0 0 15px rgba(252, 251, 249, 1) !important;
     }
 
     /* Disable severe mobile performance killer (parallax repainting) */
