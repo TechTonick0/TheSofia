@@ -408,28 +408,28 @@ body {
 }
 
 .decor-vine-top-left {
-    background-image: url('combined_decor_transparent.png');
+    background-image: url('combined_decor_transparent.webp?v=4');
     width: 550px;
     height: 550px;
     transform: rotate(180deg);
 }
 
 .decor-vine-top-right {
-    background-image: url('combined_decor_transparent.png');
+    background-image: url('combined_decor_transparent.webp?v=4');
     width: 550px;
     height: 550px;
     transform: rotate(-90deg);
 }
 
 .decor-lemon-bottom-right {
-    background-image: url('combined_decor_transparent.png');
+    background-image: url('combined_decor_transparent.webp?v=4');
     width: 550px;
     height: 550px;
     transform: rotate(0deg);
 }
 
 .decor-vine-diagonal {
-    background-image: url('sparse_diagonal_transparent.png');
+    background-image: url('sparse_diagonal_transparent.webp?v=4');
     width: 900px;
     height: 900px;
     background-position: center center;
@@ -450,7 +450,7 @@ body {
 .decor-garland-img {
     width: 100%;
     height: 100%;
-    background-image: url('user_horizontal_garland_transparent.png');
+    background-image: url('user_horizontal_garland_transparent.webp?v=4');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -550,3 +550,4 @@ body {
 .lightbox-prev:hover, .lightbox-next:hover {
     color: var(--secondary-color);
 }
+
