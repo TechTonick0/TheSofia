@@ -175,6 +175,8 @@ header {
 
 .logo img {
     height: 70px;
+    border-radius: 4px;
+    display: block;
 }
 
 .nav-links {
