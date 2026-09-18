@@ -173,6 +173,21 @@ header {
     padding: 15px 0;
 }
 
+.logo a {
+    font-family: var(--font-script);
+    font-size: 2.8rem;
+    color: #1F4280;
+    text-decoration: none;
+    line-height: 1;
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.logo a:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+}
+
 .logo img {
     height: 70px;
     border-radius: 4px;
@@ -358,6 +373,10 @@ header {
 
     .hero-content h1 {
         font-size: 3rem;
+    }
+
+    .logo a {
+        font-size: 2.2rem;
     }
 
     .grid-3, .contact-grid, .form-row {
